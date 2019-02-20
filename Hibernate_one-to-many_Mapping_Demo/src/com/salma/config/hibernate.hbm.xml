@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+          "-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+          "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+  
+          <hibernate-mapping>  
+          
+          <class name="com.salma.model.Category" table="Category"> 
+           
+	          <id name="catId" column="Cat_ID">  
+	          		<generator class="assigned"></generator>  
+	          </id>
+	            
+          <property name="catName" column="Cat_Name"></property>
+          
+          
+          
+            
+            
+          <list name="product" cascade="all"> 
+           
+	          <key column="Cat_ID"></key>  
+	          <index column="type"></index>  
+	          
+	          <one-to-many class="com.salma.model.Product"/> 
+           
+          </list>  
+          </class>
+          
+          
+          
+          
+          <class name="com.salma.model.Product" table="Product"> 
+           
+	          <id name="productId" column="Product_Id">  
+	          		<generator class="assigned"></generator>  
+	          </id>
+	            
+          <property name="productName" column="Product_Name"></property>  
+
+          <property name="price" column="price"></property>  
+         
+          </class>
+          
+            
+          
+          
+         </hibernate-mapping>
